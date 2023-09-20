@@ -1,23 +1,27 @@
 from opcoes import mostrar_opcoes, cadastrar_aluno, mostrar_alunos, buscar_aluno
 import os
+import time
 
 while True:
-    mostrar_opcoes()
-    opcao = int(input("Escolha uma opção: "))
+    try:
+        os.system("cls")
+        mostrar_opcoes()
+        opcao = int(input("Escolha uma opção: "))
+        os.system("cls")
 
-    if opcao == 1:
+        if opcao == 1:
+            cadastrar_aluno()
+        elif opcao == 2:
+            mostrar_alunos()
+        elif opcao == 3:
+            buscar_aluno()
+        elif opcao == 4:
+            print("Encerrando programa")
+            break
+        else:
+            print("Digite uma opção válida")
+    except ValueError:
         os.system("cls")
-        cadastrar_aluno()
-    elif opcao == 2:
-        os.system("cls")
-        mostrar_alunos()
-    elif opcao == 3:
-        os.system("cls")
-        buscar_aluno()
-    elif opcao == 4:
-        os.system("cls")
-        print("Encerrando programa")
-        break
-    else:
-        os.system("cls")
-        print("Digite uma opção válida")
+        print("Digite corretamente o que foi pedido")
+        time.sleep(3)
+

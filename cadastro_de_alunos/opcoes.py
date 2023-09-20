@@ -15,6 +15,13 @@ def cadastrar_aluno():
     curso = input("Informe o curso do aluno: ")
     email = input("Informe o E-Mail do aluno: ")
 
+    for caractere in nome:
+        if caractere.isdigit():
+            print("O Campo nome possui números.")
+            print("O Cadastro não foi efetuado.")
+            time.sleep(3)
+            return
+
     aluno = f"Nome: {nome} | E-Mail: {email} | Curso: {curso}\n"
 
     arquivo = open(nome_arquivo, "a")
