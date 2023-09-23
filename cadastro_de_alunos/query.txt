@@ -1,0 +1,13 @@
+CREATE TABLE cursos (
+    id_curso INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_curso TEXT NOT NULL
+);
+
+-- Tabela "aluno" com campos "id_aluno", "nome", "curso_id" (chave estrangeira) e "email"
+CREATE TABLE aluno (
+    id_aluno INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    curso_id INTEGER,
+    email TEXT UNIQUE NOT NULL,
+    FOREIGN KEY (curso_id) REFERENCES cursos(id_curso)
+);

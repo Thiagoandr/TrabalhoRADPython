@@ -1,10 +1,13 @@
-from opcoes import mostrar_opcoes, cadastrar_aluno, mostrar_alunos, buscar_aluno
+from opcoes import *
 import os
 import time
+from banco import fechar_banco
 
 from colorama import Fore, Back, Style, init
 
 init(autoreset=True)
+
+iniciar_banco()
 
 while True:
     try:
@@ -14,13 +17,14 @@ while True:
         os.system("cls")
 
         if opcao == 1:
-            cadastrar_aluno()
+            cadastrar()
         elif opcao == 2:
             mostrar_alunos()
         elif opcao == 3:
             buscar_aluno()
         elif opcao == 4:
             print(Fore.BLUE + "Encerrando programa" + Style.RESET_ALL)
+            fechar_banco()
             break
         else:
             print(Fore.RED + "Digite uma opção válida" + Style.RESET_ALL)
